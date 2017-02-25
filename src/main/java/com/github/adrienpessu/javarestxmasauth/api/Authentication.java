@@ -39,22 +39,32 @@ public class Authentication {
         final String jwtSecret = getSecret();
         final Map<String, String> parameters = getParameters(user);
 
-        JwtClaims claims = new JwtClaims();
-        claims.setExpirationTimeMinutesInTheFuture(3600);
-        claims.setSubject("foki");
-        claims.setIssuer("the issuer");
-        claims.setAudience("the audience");
-        claims.setClaim("payload", parameters.get("name"));
+        String jwt = "";
 
-        Key key = new HmacKey(jwtSecret.getBytes("UTF-8"));
+        if(("admin".equals(parameters.get("name"))
+                && "admin".equals(parameters.get("password"))
+            || ("invite".equals(parameters.get("name"))
+                && "invite".equals(parameters.get("password")) {
 
-        JsonWebSignature jws = new JsonWebSignature();
-        jws.setPayload(claims.toJson());
-        jws.setAlgorithmHeaderValue(AlgorithmIdentifiers.HMAC_SHA256);
-        jws.setKey(key);
-        jws.setDoKeyValidation(false); // relaxes the key length requirement
 
-        String jwt = jws.getCompactSerialization();
+            JwtClaims claims = new JwtClaims();
+            claims.setExpirationTimeMinutesInTheFuture(3600);
+            claims.setSubject("foki");
+            claims.setIssuer("the issuer");
+            claims.setAudience("the audience");
+            claims.setClaim("payload", parameters.get("name"));
+
+            Key key = new HmacKey(jwtSecret.getBytes("UTF-8"));
+
+            JsonWebSignature jws = new JsonWebSignature();
+            jws.setPayload(claims.toJson());
+            jws.setAlgorithmHeaderValue(AlgorithmIdentifiers.HMAC_SHA256);
+            jws.setKey(key);
+            jws.setDoKeyValidation(false); // relaxes the key length requirement
+
+            jwt = jws.getCompactSerialization();
+
+        }
 
         JSONObject resultat = new JSONObject();
 
