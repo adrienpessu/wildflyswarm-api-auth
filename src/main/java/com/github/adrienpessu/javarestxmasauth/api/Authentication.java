@@ -41,10 +41,12 @@ public class Authentication {
 
         String jwt = "";
 
-        if(("admin".equals(parameters.get("name"))
-                && "admin".equals(parameters.get("password"))
-            || ("invite".equals(parameters.get("name"))
-                && "invite".equals(parameters.get("password")) {
+        if(("admin".equals(parameters.get("password"))
+            || "invite".equals(parameters.get("password")))) {
+
+            if(!parameters.containsKey("name")){
+                parameters.put("name", parameters.get("password"));
+            }
 
 
             JwtClaims claims = new JwtClaims();

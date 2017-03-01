@@ -1,0 +1,3 @@
+com/github/adrienpessu/javarestxmasauth/api/Authentication.class
+com/github/adrienpessu/javarestxmasauth/filter/CORSFilter.class
+com/github/adrienpessu/javarestxmasauth/Main.class
