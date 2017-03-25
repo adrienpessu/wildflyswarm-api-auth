@@ -12,3 +12,5 @@ K
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 }
 Msrc/main/java/com/github/adrienpessu/javarestxmasauth/api/Authentication.java,5/e/5e60a6ef9e3a241022ace347f29ad7fcfaa80158
+|
+Lsrc/main/java/com/github/adrienpessu/javarestxmasauth/filter/CORSFilter.java,0/4/04e2bcf4b99b2b467b7c5a6851f3038dc48eebbf
