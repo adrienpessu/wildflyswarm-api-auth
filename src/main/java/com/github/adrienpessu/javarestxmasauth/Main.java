@@ -5,6 +5,7 @@ import com.github.adrienpessu.javarestxmasauth.filter.CORSFilter;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.wildfly.swarm.Swarm;
 import org.wildfly.swarm.jaxrs.JAXRSArchive;
+import org.wildfly.swarm.spi.api.SwarmProperties;
 
 /**
  * Created by adrien on 04/02/2017.
@@ -12,6 +13,7 @@ import org.wildfly.swarm.jaxrs.JAXRSArchive;
 public class Main {
 
     public static void main(String... args) throws Exception {
+
 
         Swarm swarm = new Swarm();
 

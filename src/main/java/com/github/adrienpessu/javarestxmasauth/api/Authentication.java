@@ -40,14 +40,10 @@ public class Authentication {
         final Map<String, String> parameters = getParameters(user);
 
         String jwt = "";
+        JSONObject resultat = new JSONObject();
 
-        if(("admin".equals(parameters.get("password"))
-            || "invite".equals(parameters.get("password")))) {
-
-            if(!parameters.containsKey("name")){
-                parameters.put("name", parameters.get("password"));
-            }
-
+        if((("admin".equals(parameters.get("name")) && "yaelle".equals(parameters.get("password")))
+            || ("invite".equals(parameters.get("name")) && "eline".equals(parameters.get("password"))))) {
 
             JwtClaims claims = new JwtClaims();
             claims.setExpirationTimeMinutesInTheFuture(3600);
@@ -65,13 +61,10 @@ public class Authentication {
             jws.setDoKeyValidation(false); // relaxes the key length requirement
 
             jwt = jws.getCompactSerialization();
-
+            resultat.put("name", parameters.get("name"));
+            resultat.put("token", jwt);
         }
 
-        JSONObject resultat = new JSONObject();
-
-        resultat.put("name", parameters.get("name"));
-        resultat.put("token", jwt);
         return resultat.toJSONString();
     }
 
@@ -111,11 +104,9 @@ public class Authentication {
         Map<String, String> parameters = new HashMap();
         while(!parser.isClosed()){
             JsonToken jsonToken = parser.nextToken();
-
             if(JsonToken.FIELD_NAME.equals(jsonToken)){
                 String fieldName = parser.getCurrentName();
                 parser.nextToken();
-
                 parameters.put(fieldName, parser.getValueAsString());
             }
         }
