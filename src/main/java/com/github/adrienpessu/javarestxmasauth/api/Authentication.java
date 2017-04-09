@@ -42,8 +42,8 @@ public class Authentication {
         String jwt = "";
         JSONObject resultat = new JSONObject();
 
-        if((("admin".equals(parameters.get("name")) && "yaelle".equals(parameters.get("password")))
-            || ("invite".equals(parameters.get("name")) && "eline".equals(parameters.get("password"))))) {
+        if((("admin".equals(parameters.get("name")) && this.getAdminPassword().equals(parameters.get("password")))
+            || ("invite".equals(parameters.get("name")) && this.getGuestPassword().equals(parameters.get("password"))))) {
 
             JwtClaims claims = new JwtClaims();
             claims.setExpirationTimeMinutesInTheFuture(3600);
@@ -118,6 +118,22 @@ public class Authentication {
         String jwtSecret = System.getenv("JWT_SECRET");
         if(Strings.isNullOrEmpty(jwtSecret)){
             jwtSecret = "password";
+        }
+        return jwtSecret;
+    }
+
+    private String getGuestPassword(){
+        String jwtSecret = System.getenv("GUEST_PASSWORD");
+        if(Strings.isNullOrEmpty(jwtSecret)){
+            jwtSecret = "eline";
+        }
+        return jwtSecret;
+    }
+
+    private String getAdminPassword(){
+        String jwtSecret = System.getenv("ADMIN_PASSWORD");
+        if(Strings.isNullOrEmpty(jwtSecret)){
+            jwtSecret = "yaelle";
         }
         return jwtSecret;
     }
