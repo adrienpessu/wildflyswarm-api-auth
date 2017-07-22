@@ -1,5 +1,4 @@
 
+jsquid:S1192"IDefine a constant instead of duplicating this literal "password" 3 times.(Ö¶¬ùÿÿÿÿ8ÖÖ§Œµ+
+Äsquid:S1160"§Refactor this method to throw at most one checked exception instead of: org.jose4j.lang.JoseException, java.io.IOException, org.jose4j.jwt.consumer.InvalidJwtException(ªş¨È8ÖÖ§Œµ+
 Ésquid:S1160"§Refactor this method to throw at most one checked exception instead of: org.jose4j.lang.JoseException, java.io.IOException, org.jose4j.jwt.consumer.InvalidJwtException(’©«Éÿÿÿÿÿ8Úá·î²+
-esquid:S1192"IDefine a constant instead of duplicating this literal "password" 3 times.(Ò½¬8ÎÑÆî²+
-Äsquid:S1160"§Refactor this method to throw at most one checked exception instead of: org.jose4j.lang.JoseException, java.io.IOException, org.jose4j.jwt.consumer.InvalidJwtException(ªş¨È8Úá·î²+
-Osquid:UselessParenthesesCheck"!Remove those useless parentheses.(Ò½¬8Ùá·î²+
