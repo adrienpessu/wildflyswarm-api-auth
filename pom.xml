@@ -50,6 +50,30 @@
               <mainClass>com.github.adrienpessu.javarestxmasauth.Main</mainClass>
           </configuration>
       </plugin>
+      <plugin>
+        <groupId>io.thorntail</groupId>
+        <artifactId>thorntail-maven-plugin</artifactId>
+        <configuration>
+          <properties>
+            <swarm.bind.address>127.0.0.1</swarm.bind.address>
+            <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
+          </properties>
+        </configuration>
+        <executions>
+          <execution>
+            <id>package</id>
+            <phase>none</phase>
+          </execution>
+          <execution>
+            <id>start</id>
+            <phase>none</phase>
+          </execution>
+          <execution>
+            <id>stop</id>
+            <phase>none</phase>
+          </execution>
+        </executions>
+</plugin>
     </plugins>
   </build>
 
